@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="">
+<html class="theme-next muse use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="红黑树的概述：红黑树本质上是一种二叉查找树，但它在二叉查找树的基础上额外添加了一个标记（颜色），同时具有一定的规则。这些规则使红黑树保证了一种平衡，插入、删除、查找的最坏时间复杂度都为 O(logn)。 红黑树的性质：1、每个节点要么是红色，要么是黑色；2、根节点永远是黑色的；3、所有的叶节点都是是黑色的（注意这里说叶子节点其实是上图中的 NIL 节点）；4、每个红色节点的两个子节点一定都是黑色；">
+<meta name="description" content="123 红黑树的概述：红黑树本质上是一种二叉查找树，但它在二叉查找树的基础上额外添加了一个标记（颜色），同时具有一定的规则。这些规则使红黑树保证了一种平衡，插入、删除、查找的最坏时间复杂度都为 O(logn)。 红黑树的性质：1、每个节点要么是红色，要么是黑色；2、根节点永远是黑色的；3、所有的叶节点都是是黑色的（注意这里说叶子节点其实是上图中的 NIL 节点）；4、每个红色节点的两个子节点一定都">
 <meta property="og:type" content="article">
-<meta property="og:title" content="红黑树的实现">
+<meta property="og:title" content="RBT">
 <meta property="og:url" content="http://yoursite.com/2018/09/13/RbT/index.html">
 <meta property="og:site_name" content="anxinghei">
-<meta property="og:description" content="红黑树的概述：红黑树本质上是一种二叉查找树，但它在二叉查找树的基础上额外添加了一个标记（颜色），同时具有一定的规则。这些规则使红黑树保证了一种平衡，插入、删除、查找的最坏时间复杂度都为 O(logn)。 红黑树的性质：1、每个节点要么是红色，要么是黑色；2、根节点永远是黑色的；3、所有的叶节点都是是黑色的（注意这里说叶子节点其实是上图中的 NIL 节点）；4、每个红色节点的两个子节点一定都是黑色；">
-<meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-09-13T14:15:08.026Z">
+<meta property="og:description" content="123 红黑树的概述：红黑树本质上是一种二叉查找树，但它在二叉查找树的基础上额外添加了一个标记（颜色），同时具有一定的规则。这些规则使红黑树保证了一种平衡，插入、删除、查找的最坏时间复杂度都为 O(logn)。 红黑树的性质：1、每个节点要么是红色，要么是黑色；2、根节点永远是黑色的；3、所有的叶节点都是是黑色的（注意这里说叶子节点其实是上图中的 NIL 节点）；4、每个红色节点的两个子节点一定都">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-09-13T14:19:22.956Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="红黑树的实现">
-<meta name="twitter:description" content="红黑树的概述：红黑树本质上是一种二叉查找树，但它在二叉查找树的基础上额外添加了一个标记（颜色），同时具有一定的规则。这些规则使红黑树保证了一种平衡，插入、删除、查找的最坏时间复杂度都为 O(logn)。 红黑树的性质：1、每个节点要么是红色，要么是黑色；2、根节点永远是黑色的；3、所有的叶节点都是是黑色的（注意这里说叶子节点其实是上图中的 NIL 节点）；4、每个红色节点的两个子节点一定都是黑色；">
+<meta name="twitter:title" content="RBT">
+<meta name="twitter:description" content="123 红黑树的概述：红黑树本质上是一种二叉查找树，但它在二叉查找树的基础上额外添加了一个标记（颜色），同时具有一定的规则。这些规则使红黑树保证了一种平衡，插入、删除、查找的最坏时间复杂度都为 O(logn)。 红黑树的性质：1、每个节点要么是红色，要么是黑色；2、根节点永远是黑色的；3、所有的叶节点都是是黑色的（注意这里说叶子节点其实是上图中的 NIL 节点）；4、每个红色节点的两个子节点一定都">
 
 
 
@@ -125,7 +125,7 @@
 
 
 
-  <title>红黑树的实现 | anxinghei</title>
+  <title>RBT | anxinghei</title>
   
 
 
@@ -137,7 +137,7 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
   
   
@@ -249,7 +249,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">红黑树的实现</h1>
+          <h1 class="post-title" itemprop="name headline">RBT</h1>
         
 
         <div class="post-meta">
@@ -261,7 +261,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-13T22:13:26+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-13T22:04:33+08:00">
                 2018-09-13
               </time>
             
@@ -299,7 +299,8 @@
       
 
       
-        <h3 id="红黑树的概述："><a href="#红黑树的概述：" class="headerlink" title="红黑树的概述："></a>红黑树的概述：</h3><p>红黑树本质上是一种二叉查找树，但它在二叉查找树的基础上额外添加了一个标记（颜色），同时具有一定的规则。这些规则使红黑树保证了一种平衡，插入、删除、查找的最坏时间复杂度都为 O(logn)。</p>
+        <p>123</p>
+<h3 id="红黑树的概述："><a href="#红黑树的概述：" class="headerlink" title="红黑树的概述："></a>红黑树的概述：</h3><p>红黑树本质上是一种二叉查找树，但它在二叉查找树的基础上额外添加了一个标记（颜色），同时具有一定的规则。这些规则使红黑树保证了一种平衡，插入、删除、查找的最坏时间复杂度都为 O(logn)。</p>
 <h3 id="红黑树的性质："><a href="#红黑树的性质：" class="headerlink" title="红黑树的性质："></a>红黑树的性质：</h3><p>1、每个节点要么是红色，要么是黑色；<br>2、根节点永远是黑色的；<br>3、所有的叶节点都是是黑色的（注意这里说叶子节点其实是上图中的 NIL 节点）；<br>4、每个红色节点的两个子节点一定都是黑色；<br>5、从任一节点到其子树中每个叶子节点的路径都包含相同数量的黑色节点。  </p>
 <h3 id="红黑树的插入与修复"><a href="#红黑树的插入与修复" class="headerlink" title="红黑树的插入与修复"></a>红黑树的插入与修复</h3><p>因为要满足红黑树的这五条性质，如果我们插入的是黑色节点，那就违反了性质五，需要进行大规模调整；如果我们插入的是红色节点，那就只有在要插入节点的父节点也是红色的时候违反性质四或者当插入的节点是根节点时，违反性质二，所以，我们把要插入的节点的颜色变成红色。</p>
 <p>不需要调整的情况：<br>1、当插入的节点是根节点时，直接涂黑即可；<br>2、当要插入的节点的父节点是黑色的时候，这个时候插入一个红色的节点并没有对这五个性质产生破坏。所以直接插入不用在进行调整操作。</p>
