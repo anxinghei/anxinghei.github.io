@@ -86,10 +86,18 @@
 <meta property="og:site_name" content="anxinghei">
 <meta property="og:description" content="红黑树的概述：红黑树本质上是一种二叉查找树，但它在二叉查找树的基础上额外添加了一个标记（颜色），同时具有一定的规则。这些规则使红黑树保证了一种平衡，插入、删除、查找的最坏时间复杂度都为 O(logn)。  红黑树的性质：1、每个节点要么是红色，要么是黑色；2、根节点永远是黑色的；3、所有的叶节点都是是黑色的（注意这里说叶子节点其实是上图中的 NIL 节点）；4、每个红色节点的两个子节点一定都是黑">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-09-13T15:01:36.816Z">
+<meta property="og:image" content="https://s1.ax1x.com/2018/09/13/iEFTts.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/09/13/iEFjnU.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/09/13/iEFvBF.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/09/13/iEkSAJ.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/09/13/iEki1x.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/09/13/iEk9hR.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/09/13/iEkP91.png">
+<meta property="og:updated_time" content="2018-09-13T15:59:01.912Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="RBT">
 <meta name="twitter:description" content="红黑树的概述：红黑树本质上是一种二叉查找树，但它在二叉查找树的基础上额外添加了一个标记（颜色），同时具有一定的规则。这些规则使红黑树保证了一种平衡，插入、删除、查找的最坏时间复杂度都为 O(logn)。  红黑树的性质：1、每个节点要么是红色，要么是黑色；2、根节点永远是黑色的；3、所有的叶节点都是是黑色的（注意这里说叶子节点其实是上图中的 NIL 节点）；4、每个红色节点的两个子节点一定都是黑">
+<meta name="twitter:image" content="https://s1.ax1x.com/2018/09/13/iEFTts.png">
 
 
 
@@ -307,17 +315,11 @@
 <h3 id="红黑树的插入与修复"><a href="#红黑树的插入与修复" class="headerlink" title="红黑树的插入与修复"></a>红黑树的插入与修复</h3><p>因为要满足红黑树的这五条性质，如果我们插入的是黑色节点，那就违反了性质五，需要进行大规模调整；如果我们插入的是红色节点，那就只有在要插入节点的父节点也是红色的时候违反性质四或者当插入的节点是根节点时，违反性质二，所以，我们把要插入的节点的颜色变成红色。</p>
 <p>不需要调整的情况：<br>1、当插入的节点是根节点时，直接涂黑即可；<br>2、当要插入的节点的父节点是黑色的时候，这个时候插入一个红色的节点并没有对这五个性质产生破坏。所以直接插入不用在进行调整操作。</p>
 <p>需要调整的情况：即插入节点的父结点也是<em>红色</em>。<br>因为左右对称的缘故，在此只讨论父结点位于祖父节点的左支的情况（N 为插入节点）：</p>
-<p>1、叔叔节点是红色<br>这时候只进行换色操作：将父结点和叔叔节点涂成黑色，祖父节点涂成红色。</p>
-<p>2、叔叔节点是黑色，插入节点位于父节点的右支<br>这时候需要将父结点当成新的插入节点，并以他为支点进行左旋操作，进入情况3 。</p>
-<p>3、叔叔节点是黑色，插入节点位于父结点的左支<br>这时候需要先进行换色操作：将父结点涂成黑色，祖父节点涂成红色；然后进行右旋操作。</p>
-<hr>
-<h3 id="红黑树的删除与修复"><a href="#红黑树的删除与修复" class="headerlink" title="红黑树的删除与修复"></a>红黑树的删除与修复</h3><p>如果被删除结点有孩子，则需要选一个合适的孩子节点作为新的根节点，称为当前节点。<br>1、只有左孩子或只有右孩子，则让该孩子作为当前节点替代被删除结点；<br>2、左右孩子均存在，则用被删除结点的中序后继结点作为当前节点替代被删除结点。</p>
+<p>1、叔叔节点是红色<br>这时候只进行换色操作：将父结点和叔叔节点涂成黑色，祖父节点涂成红色。<br><img src="https://s1.ax1x.com/2018/09/13/iEFTts.png" alt=""><br>2、叔叔节点是黑色，插入节点位于父节点的右支<br>这时候需要将父结点当成新的插入节点，并以他为支点进行左旋操作，进入情况3 。<br><img src="https://s1.ax1x.com/2018/09/13/iEFjnU.png" alt=""><br>3、叔叔节点是黑色，插入节点位于父结点的左支<br>这时候需要先进行换色操作：将父结点涂成黑色，祖父节点涂成红色；然后进行右旋操作。</p>
+<h2 id=""><a href="#" class="headerlink" title=""></a><img src="https://s1.ax1x.com/2018/09/13/iEFvBF.png" alt=""></h2><h3 id="红黑树的删除与修复"><a href="#红黑树的删除与修复" class="headerlink" title="红黑树的删除与修复"></a>红黑树的删除与修复</h3><p>如果被删除结点有孩子，则需要选一个合适的孩子节点作为新的根节点，称为当前节点。<br>1、只有左孩子或只有右孩子，则让该孩子作为当前节点替代被删除结点；<br>2、左右孩子均存在，则用被删除结点的中序后继结点作为当前节点替代被删除结点。</p>
 <p>注意：替代只是<strong>值的互换，颜色不变</strong>。<br>即：当前节点是黑色，被删除结点是红色。替换后，当前节点位于被删除结点的位置，是红色；被删除结点位于当前节点原来的位置，是黑色。</p>
 <p>不需要修复的情况：<br>1、被删除结点的是红色的；<br>2、被删除结点只有一个孩子，用孩子的值替换被删除节点，删除孩子结点。</p>
-<p>需要修复的情况：（被删除节点为黑色）<br>因为左右对称的缘故，在此只讨论父结点位于祖父节点的左支的情况：<br>1、兄弟节点为红色<br>这时候需要互换父结点和兄弟节点的颜色，并进行左旋操作。</p>
-<p>2、兄弟节点为黑色，且其左右孩子也为黑色<br>将兄弟节点涂成红色，再将父结点当成新的被删除结点（只是当成，并不删除）进行一次修复（右图中少了根节点的左孩子被删除元素）。</p>
-<p>3、兄弟节点为黑色，且其左孩子为红色<br>先换色：左孩子涂成黑色，兄弟节点涂成红色；再以兄弟节点为支点右旋。变成情况4 。</p>
-<p>4、兄弟节点为黑色，且其右孩子为红色<br>先换色：父结点的颜色赋给兄弟节点，父结点涂成黑色，兄弟节点的右孩子涂成黑色；再左旋（右图中a 的左孩子是被删除元素）。</p>
+<p>需要修复的情况：（被删除节点为黑色）<br>因为左右对称的缘故，在此只讨论父结点位于祖父节点的左支的情况：<br>1、兄弟节点为红色<br>这时候需要互换父结点和兄弟节点的颜色，并进行左旋操作。<br><img src="https://s1.ax1x.com/2018/09/13/iEkSAJ.png" alt=""><br>2、兄弟节点为黑色，且其左右孩子也为黑色<br>将兄弟节点涂成红色，再将父结点当成新的被删除结点（只是当成，并不删除）进行一次修复（右图中少了根节点的左孩子被删除元素）。<br><img src="https://s1.ax1x.com/2018/09/13/iEki1x.png" alt=""><br>3、兄弟节点为黑色，且其左孩子为红色<br>先换色：左孩子涂成黑色，兄弟节点涂成红色；再以兄弟节点为支点右旋。变成情况4 。<br><img src="https://s1.ax1x.com/2018/09/13/iEk9hR.png" alt=""><br>4、兄弟节点为黑色，且其右孩子为红色<br>先换色：父结点的颜色赋给兄弟节点，父结点涂成黑色，兄弟节点的右孩子涂成黑色；再左旋（右图中a 的左孩子是被删除元素）。<br><img src="https://s1.ax1x.com/2018/09/13/iEkP91.png" alt=""></p>
 <hr>
 <h3 id="红黑树的查找"><a href="#红黑树的查找" class="headerlink" title="红黑树的查找"></a>红黑树的查找</h3><p>与二叉排序树的查找一样：从根节点出发，待找值较大时往右子树方向查找，待找值较小时往左子树方向查找，直到找到匹配的结点。若找不到则查找失败。</p>
 <hr>
@@ -454,7 +456,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#红黑树的概述："><span class="nav-number">1.</span> <span class="nav-text">红黑树的概述：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#红黑树的性质："><span class="nav-number">2.</span> <span class="nav-text">红黑树的性质：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#红黑树的插入与修复"><span class="nav-number">3.</span> <span class="nav-text">红黑树的插入与修复</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#红黑树的删除与修复"><span class="nav-number">4.</span> <span class="nav-text">红黑树的删除与修复</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#红黑树的查找"><span class="nav-number">5.</span> <span class="nav-text">红黑树的查找</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#红黑树的应用"><span class="nav-number">6.</span> <span class="nav-text">红黑树的应用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#个人体会"><span class="nav-number">7.</span> <span class="nav-text">个人体会</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#红黑树的概述："><span class="nav-number">1.</span> <span class="nav-text">红黑树的概述：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#红黑树的性质："><span class="nav-number">2.</span> <span class="nav-text">红黑树的性质：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#红黑树的插入与修复"><span class="nav-number">3.</span> <span class="nav-text">红黑树的插入与修复</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#"><span class="nav-number"></span> <span class="nav-text"></span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#红黑树的删除与修复"><span class="nav-number">1.</span> <span class="nav-text">红黑树的删除与修复</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#红黑树的查找"><span class="nav-number">2.</span> <span class="nav-text">红黑树的查找</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#红黑树的应用"><span class="nav-number">3.</span> <span class="nav-text">红黑树的应用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#个人体会"><span class="nav-number">4.</span> <span class="nav-text">个人体会</span></a></li></ol></div>
             
 
           </div>
